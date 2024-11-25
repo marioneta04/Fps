@@ -27,7 +27,15 @@ public class ReceiveDamage : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+           
+            SceneManager.LoadScene(2);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
+
     private void OnDestroy()
     {
         ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
