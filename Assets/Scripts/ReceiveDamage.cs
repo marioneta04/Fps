@@ -32,7 +32,7 @@ public class ReceiveDamage : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
            
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

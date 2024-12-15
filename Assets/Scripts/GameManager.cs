@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float countdownTime = 30f; 
-    public Text countdownText; 
+    public float countdownTime = 30f;
+    public Text countdownText;
     private bool gameEnded = false;
 
     void Start()
@@ -19,20 +19,20 @@ public class GameManager : MonoBehaviour
     {
         if (gameEnded) return;
 
-        
+
         countdownTime -= Time.deltaTime;
         UpdateCountdownUI();
 
-        
+
         if (countdownTime <= 0)
         {
-            EndGame(false); 
+            EndGame(false);
         }
 
-        
+
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
         {
-            EndGame(true); 
+            EndGame(true);
         }
     }
 
@@ -47,14 +47,14 @@ public class GameManager : MonoBehaviour
 
         if (won)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true; 
+            Cursor.visible = true;
 
         }
         else
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
