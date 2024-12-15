@@ -10,6 +10,7 @@ public class ReceiveDamage : MonoBehaviour
     public int damage;
     private int  currentHealth;
     public Scrollbar healthBar;
+    public GameObject bloodParticlesPrefab;
 
 
 
@@ -21,6 +22,7 @@ public class ReceiveDamage : MonoBehaviour
             health -= damage;
 
             UpdateHealthBar();
+           
         }
 
         if (health <= 0)
@@ -34,6 +36,16 @@ public class ReceiveDamage : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
+        if (bloodParticlesPrefab != null) 
+        {
+            
+            ContactPoint contact = collision.contacts[0];
+            Vector3 impactPoint = contact.point;
+
+            
+            Instantiate(bloodParticlesPrefab, impactPoint, Quaternion.identity);
+        }
+
     }
 
     private void OnDestroy()
